@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тема 1: Постоянный ток</title>
+    <style>
+        :root {
+            --primary-red: #d32f2f;
+            --dark-blue: #1a237e;
+            --bg-color: #f5f5f5;
+            --text-color: #333;
+        }
+        body { font-family: 'Segoe UI', Roboto, sans-serif; margin: 0; background: var(--bg-color); color: var(--text-color); line-height: 1.6; }
+        
+        header {
+            background: white; padding: 0 40px; height: 70px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .logo { display: flex; align-items: center; gap: 10px; font-weight: bold; color: var(--dark-blue); }
+        .logo img { height: 40px; }
+        
+        .back-btn { text-decoration: none; color: #666; display: flex; align-items: center; gap: 5px; font-weight: 500; }
+        .back-btn:hover { color: var(--primary-red); }
+
+        .container { max-width: 800px; margin: 40px auto; background: white; padding: 40px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+        
+        h1 { color: var(--dark-blue); margin-top: 0; border-bottom: 2px solid var(--primary-red); padding-bottom: 15px; }
+        h2 { color: var(--dark-blue); margin-top: 30px; }
+        
+        .formula-box { background: #e3f2fd; border-left: 5px solid #1e88e5; padding: 15px; margin: 20px 0; border-radius: 0 8px 8px 0; font-family: monospace; font-size: 1.2rem; text-align: center; }
+
+        /* Стили теста */
+        .quiz-box { margin-top: 50px; border-top: 2px dashed #eee; padding-top: 30px; }
+        .question { margin-bottom: 25px; }
+        .question p { font-weight: 600; margin-bottom: 10px; }
+        .options label { display: block; padding: 12px; border: 1px solid #eee; border-radius: 8px; margin-bottom: 8px; cursor: pointer; transition: 0.2s; }
+        .options label:hover { background: #f9f9f9; border-color: #ddd; }
+        .options input { margin-right: 10px; }
+        
+        .check-btn { background: var(--primary-red); color: white; border: none; padding: 15px; width: 100%; border-radius: 8px; font-size: 1rem; font-weight: bold; cursor: pointer; margin-top: 20px; }
+        .check-btn:hover { background: #b71c1c; }
+
+        #result { margin-top: 20px; padding: 15px; border-radius: 8px; display: none; text-align: center; font-weight: bold; }
+        .success { background: #e8f5e9; color: #2e7d32; display: block !important; }
+        .error { background: #ffebee; color: #c62828; display: block !important; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="https://cdn-icons-png.flaticon.com/512/744/744465.png" alt="Лого">
+            <span>Магистраль знаний</span>
+        </div>
+        <a href="materials.html" class="back-btn">← Вернуться к списку тем</a>
+    </header>
+
+    <div class="container">
+        <h1>Электрические цепи постоянного тока</h1>
+        
+        <p><strong>Электрическая цепь</strong> — совокупность устройств, элементов, предназначенных для протекания электрического тока, электромагнитные процессы в которых могут быть описаны с помощью понятий сила тока и напряжение.</p>
+
+        <h2>Закон Ома</h2>
+        <p>Сила тока в участке цепи прямо пропорциональна напряжению на этом участке и обратно пропорциональна его сопротивлению.</p>
+        <div class="formula-box">
+            I = U / R
+        </div>
+        <p>Где <strong>I</strong> — сила тока (А), <strong>U</strong> — напряжение (В), <strong>R</strong> — сопротивление (Ом).</p>
+
+        <h2>Законы Кирхгофа</h2>
+        <p>Используются для расчета сложных цепей:</p>
+        <ul>
+            <li><strong>Первый закон:</strong> Сумма токов, входящих в узел, равна сумме токов, выходящих из него (ΣIвх = ΣIвых).</li>
+            <li><strong>Второй закон:</strong> Алгебраическая сумма падений напряжений по любому замкнутому контуру равна алгебраической сумме ЭДС в этом контуре.</li>
+        </ul>
+
+        <!-- Тест -->
+        <div class="quiz-box">
+            <h2>Проверка знаний</h2>
+            <form id="quizForm">
+                <div class="question">
+                    <p>1. Как рассчитать силу тока, если известно напряжение и сопротивление?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q1" value="wrong"> I = U * R</label>
+                        <label><input type="radio" name="q1" value="correct"> I = U / R</label>
+                        <label><input type="radio" name="q1" value="wrong"> I = R / U</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>2. Сумма токов, входящих в узел, равна сумме токов, выходящих из него. Это...</p>
+                    <div class="options">
+                        <label><input type="radio" name="q2" value="correct"> Первый закон Кирхгофа</label>
+                        <label><input type="radio" name="q2" value="wrong"> Второй закон Кирхгофа</label>
+                        <label><input type="radio" name="q2" value="wrong"> Закон Джоуля-Ленца</label>
+                    </div>
+                </div>
+                
+                <button type="button" class="check-btn" onclick="checkQuiz()">Проверить ответы</button>
+            </form>
+            <div id="result"></div>
+        </div>
+    </div>
+
+    <script>
+        function checkQuiz() {
+            const q1 = document.querySelector('input[name="q1"]:checked');
+            const q2 = document.querySelector('input[name="q2"]:checked');
+            const res = document.getElementById('result');
+
+            if (!q1 || !q2) {
+                alert('Пожалуйста, ответьте на все вопросы!');
+                return;
+            }
+
+            let correct = 0;
+            if (q1.value === 'correct') correct++;
+            if (q2.value === 'correct') correct++;
+
+            res.style.display = 'block';
+            
+            if (correct === 2) {
+                res.className = 'success';
+                res.innerHTML = '🎉 Отлично! Вы полностью усвоили тему. Тест пройден на 100%.';
+            } else {
+                res.className = 'error';
+                res.innerHTML = `Вы ответили правильно на ${correct} из 2 вопросов. Рекомендуем повторить материал.`;
+            }
+        }
+    </script>
+</body>
+</html>

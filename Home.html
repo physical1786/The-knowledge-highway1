@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Магистраль знаний - Главная</title>
+    <style>
+        :root {
+            --primary-red: #d32f2f;
+            --dark-blue: #1a237e;
+            --bg-color: #f5f5f5;
+            --text-color: #333;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        /* Шапка */
+        header {
+            background-color: white;
+            padding: 0 40px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--dark-blue);
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        /* Меню навигации */
+        .nav-menu {
+            display: flex;
+            gap: 5px;
+            background: #f8f9fa;
+            padding: 5px;
+            border-radius: 8px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #555;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.2s;
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            background-color: white;
+            color: var(--dark-blue);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        /* Контент */
+        .container {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        /* Баннер */
+        .welcome-banner {
+            background: linear-gradient(135deg, #fce4ec 0%, #f3e5f5 100%);
+            border-radius: 16px;
+            padding: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .banner-text h1 {
+            margin: 0 0 10px 0;
+            color: #333;
+            font-size: 1.8rem;
+        }
+
+        .banner-text p {
+            margin: 0 0 20px 0;
+            color: #666;
+        }
+
+        .banner-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-red {
+            background-color: var(--primary-red);
+            color: white;
+        }
+
+        .btn-white {
+            background-color: white;
+            color: #333;
+            border: 1px solid #ddd;
+        }
+
+        .score-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: rgba(211, 47, 47, 0.15);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--primary-red);
+            border: 4px solid rgba(211, 47, 47, 0.3);
+        }
+
+        .score-circle span { font-size: 2rem; font-weight: bold; }
+        .score-circle small { font-size: 0.7rem; color: #666; }
+
+        /* Карточки статистики */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .stat-icon {
+            width: 40px; height: 40px;
+            background: #fce4ec;
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .stat-value { font-size: 1.5rem; font-weight: bold; color: #333; }
+        .stat-label { font-size: 0.8rem; color: #777; }
+
+        /* Блок ИИ */
+        .ai-recommendation {
+            background: #f3e5f5;
+            padding: 20px;
+            border-radius: 12px;
+        }
+        .ai-header { display: flex; align-items: center; gap: 10px; margin-bottom: 15px; font-weight: bold; color: var(--dark-blue); }
+        
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="https://cdn-icons-png.flaticon.com/512/744/744465.png" alt="Лого">
+            <span>Магистраль знаний</span>
+        </div>
+        <nav class="nav-menu">
+            <a href="index.html" class="active">🏠 Главная</a>
+            <!-- Ссылка на страницу материалов -->
+            <a href="materials.html">📚 Материалы</a>
+            <a href="#">📝 Тесты</a>
+            <a href="#">🤖 AI помощники</a>
+            <a href="#">👤 Профиль</a>
+            <a href="#">📈 Аналитика</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Приветственный баннер -->
+        <div class="welcome-banner">
+            <div class="banner-text">
+                <h1>Привет! 👋</h1>
+                <p>Твой ИИ-помощник готов помочь улучшить успеваемость</p>
+                <div class="banner-buttons">
+                    <a href="materials.html" class="btn btn-red">▶ Начать тест</a>
+                    <a href="#" class="btn btn-white">📊 Мой прогресс</a>
+                </div>
+            </div>
+            <div class="score-circle">
+                <span>85</span>
+                <small>Средний балл</small>
+            </div>
+        </div>
+
+        <!-- Статистика -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">✅</div>
+                <div class="stat-value">24</div>
+                <div class="stat-label">Тестов пройдено</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📈</div>
+                <div class="stat-value">2</div>
+                <div class="stat-label">Сильных раздела</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🎯</div>
+                <div class="stat-value">+12%</div>
+                <div class="stat-label">Рост за месяц</div>
+            </div>
+        </div>
+
+        <!-- Рекомендации ИИ -->
+        <div class="ai-recommendation">
+            <div class="ai-header">
+                <span>✨</span> Рекомендации ИИ
+            </div>
+            <div style="background: white; padding: 15px; border-radius: 8px;">
+                <strong>Электрические цепи переменного тока</strong> <span style="background: #ffcdd2; color: #c62828; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; margin-left: 5px;">Важно</span>
+                <p style="margin: 10px 0; font-size: 0.9rem; color: #666;">Рекомендую уделить внимание реактивным сопротивлениям и резонансным явлениям.</p>
+                <a href="materials.html" style="color: var(--primary-red); text-decoration: none; font-size: 0.9rem; font-weight: bold;">Перейти к материалам →</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
